@@ -30,11 +30,12 @@
                         </thead>
                         <tbody>
                             {% for q in queryset %}
+                            
                             <tr>
                                 <th scope="row">{{forloop.counter}}</th>
                                 <td>{{q.category.name}}</td>
                                 <td>{{q.name}}</td>
-                                <td>...</td>
+                                <td><a href="{% url 'dashboard:product_detail' q.id %}">Detail</a></td>
                             </tr>
                             {% endfor %}
                         </tbody>

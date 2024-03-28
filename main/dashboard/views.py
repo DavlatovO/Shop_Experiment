@@ -65,7 +65,7 @@ def product_detail(request, id):
 
 def product_create(request):
     categorys = models.Category.objects.all()
-    context = {'categorys':categorys}
+    context = {'categorys': categorys, 'product': models.Product()}
     if request.method == 'POST':
         delivery = True if request.POST.get('delivery') else False
 
@@ -81,18 +81,30 @@ def product_create(request):
         return redirect('dashboard:product_list')
     return render(request, 'dashboard/product/create.html', context)
 
+from django.shortcuts import get_object_or_404
 
-def product_update(request, id):
-    product = models.Product.objects.get(id=id)
-    product.category_id = request.POST['category_id'],
-    product.name = request.POST['name'],
-    product.body = request.POST['body'],
-    product.price = request.POST['price'],
-    product.banner_img = request.FILES['banner_img'],
-    product.quantity = request.POST['quantity'],
-    product.delivery = request.POST['delivery']
-    product.save()
-    return redirect('dashboard:product_list')
+def product_update(request, product_id):
+    categorys = models.Category.objects.all()
+    product = get_object_or_404(models.Product, id=product_id)
+
+    if request.method == 'POST':
+        delivery = True if request.POST.get('delivery') else False
+
+        product.category_id = request.POST['category_id']
+        product.name = request.POST['name']
+        product.body = request.POST['body']
+        product.price = request.POST['price']
+        product.banner_img = request.FILES['banner_img']
+        product.quantity = request.POST['quantity']
+        product.delivery = delivery
+
+        product.save()
+
+        return redirect('dashboard:product_list')
+
+    context = {'categorys': categorys, 'product': product}
+
+    return render(request, 'dashboard/product/update.html', context)
 
 
 def product_delete(request, id):
