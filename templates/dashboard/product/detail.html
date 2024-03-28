@@ -37,6 +37,12 @@
                         <span class="font-weight-semibold m-r-10 m-b-5 text-dark">Qoldiq: </span>
                         <span>{{queryset.quantity}}</span>
                     </div>
+                    <div class="m-t-10">
+                        <a href="{% url 'dashboard:product_delete' id=queryset.id %}" 
+                        class="btn btn-danger">O'chirish</a>
+                    </div>
+                    
+
                 </div>
                 <div class="d-md-flex m-t-30 align-items-center justify-content-between">
                     <div class="m-t-10">
