@@ -2,7 +2,7 @@
 
 {% block content %}
 
-                
+            
     <!-- Content Wrapper START -->
     <div class="main-content">
         <div class="page-header">
@@ -66,6 +66,70 @@
                                 <input type="file" class="form-control" id="inputPassword3" name="banner_img">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Rasmlar</label>
+                            <div class="col-sm-10">
+                              <input type="file" class="form-control" id="inputPassword3" name="images" multiple>
+                              <ul id="fileList" class="list-group mt-3"></ul>
+                            </div>
+                          </div>
+                          
+                          <style>
+                          #fileList .list-group-item {
+                            border-radius: 0;
+                            padding: 10px;
+                            border-bottom: 1px solid #eee;
+                          }
+                          
+                          #fileList .list-group-item:last-child {
+                            border-bottom: none;
+                          }
+                          
+                          #fileList .list-group-item .filename {
+                            font-weight: bold;
+                          }
+                          
+                          #fileList .list-group-item .filetype {
+                            color: #666;
+                          }
+                          
+                          #fileList .list-group-item .filesize {
+                            float: right;
+                            color: #999;
+                          }
+                          </style>
+                          
+                          <script>
+                          const input = document.querySelector('input[name=images]');
+                          const list = document.querySelector('#fileList');
+                          
+                          input.addEventListener('change', () => {
+                            list.innerHTML = '';
+                            const files = input.files;
+                            for (let i = 0; i < files.length; i++) {
+                              const file = files[i];
+                              const item = document.createElement('li');
+                              const filename = document.createElement('div');
+                              const filetype = document.createElement('div');
+                              const filesize = document.createElement('div');
+                          
+                              item.classList.add('list-group-item');
+                              filename.classList.add('filename');
+                              filetype.classList.add('filetype');
+                              filesize.classList.add('filesize');
+                          
+                              filename.textContent = file.name;
+                              filetype.textContent = file.type;
+                              filesize.textContent = `${file.size} bytes`;
+                          
+                              item.appendChild(filename);
+                              item.appendChild(filetype);
+                              item.appendChild(filesize);
+                          
+                              list.appendChild(item);
+                            }
+                          });
+                          </script>
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Yaratish</button>

@@ -25,7 +25,6 @@ def category_create(request):
     return render(request, 'dashboard/category/create.html')
 
 
-
 def category_update(request, id):
     category = models.Category.objects.get(id=id)
     
@@ -94,7 +93,7 @@ def product_update(request, id):
     product.delivery = request.POST['delivery']
     product.save()
     return redirect('dashboard:product_list')
- 
+
 
 def product_delete(request, id):
     product = models.Product.objects.get(id=id)
