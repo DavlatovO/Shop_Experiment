@@ -84,12 +84,11 @@
         
                                 <div class="star-rating m-t-15">
                                     
-                                    <input type="radio" id="star{{forloop.counter}}-5" name="rating-{{forloop.counter}}" value="5" disabled=""><label for="star{{forloop.counter}}-5" title="5 star"></label>
-                                    <input type="radio" id="star{{forloop.counter}}-4" name="rating-{{forloop.counter}}" value="4" disabled=""><label for="star{{forloop.counter}}-4" title="4 star"></label>
-                                    <input type="radio" id="star{{forloop.counter}}-3" name="rating-{{forloop.counter}}" value="3" disabled=""><label for="star{{forloop.counter}}-3" title="3 star"></label>
-                                    <input type="radio" id="star{{forloop.counter}}-2" name="rating-{{forloop.counter}}" value="2" disabled=""><label for="star{{forloop.counter}}-2" title="2 star"></label>
-                                    <input type="radio" id="star{{forloop.counter}}-1" name="rating-{{forloop.counter}}" value="1" disabled=""><label for="star{{forloop.counter}}-1" title="1 star"></label>
-                                    
+                                    <input type="radio" id="star{{forloop.counter}}-5" name="rating-{{forloop.counter}}" value="5" {% if r.mark == 5 %} checked=''  {% else %} disablet ='' {% endif %}><label for="star{{forloop.counter}}-5" title="5 star"></label>
+                                    <input type="radio" id="star{{forloop.counter}}-4" name="rating-{{forloop.counter}}" value="4"  {% if r.mark == 4 %} checked=''  {% else %} disablet ='' {% endif %}><label for="star{{forloop.counter}}-4" title="4 star"></label>
+                                    <input type="radio" id="star{{forloop.counter}}-3" name="rating-{{forloop.counter}}" value="3" {% if r.mark == 3 %} checked=''  {% else %} disablet ='' {% endif %}><label for="star{{forloop.counter}}-3" title="3 star"></label>
+                                    <input type="radio" id="star{{forloop.counter}}-2" name="rating-{{forloop.counter}}" value="2" {% if r.mark == 2 %} checked=''  {% else %} disablet ='' {% endif %}><label for="star{{forloop.counter}}-2" title="2 star"></label>
+                                    <input type="radio" id="star{{forloop.counter}}-1" name="rating-{{forloop.counter}}" value="1" {% if r.mark == 1 %} checked=''  {% else %} disablet ='' {% endif %}><label for="star{{forloop.counter}}-1" title="1 star"></label>
                                 </div>
                             </div>
                             <span>{{r.text}}</span>

@@ -16,23 +16,45 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <h4>Categorylar ro`yxat</h4>
+            <h4>Categorylar ro'yxat</h4>
             <div class="m-t-25">
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nom</th>
-                                <th scope="col">Harakatlar</th>
+                            <tr role="row">
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=": activate to sort column ascending" style="width: 53.8906px;">
+                                    <div class="checkbox">
+                                        <label for="checkAll"> #</label>
+                                    </div>
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 55.8438px;">Nom</th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Customer: activate to sort column ascending" style="width: 191.938px;">Harakatlar</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for q in queryset %}
-                            <tr>
-                                <th scope="row">{{forloop.counter}}</th>
-                                <td>{{q.name}}</td>
-                                <td>...</td>
+                            <tr role="row" class="odd">
+                                <td>{{forloop.counter}}</td>
+                                <td class="sorting_1">
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge badge-danger badge-dot m-r-10"></div>
+                                        <div>{{q.name}}</div>
+                                    </div>
+                                </td>
+                                <td class="text-left">
+                                    <div style="margin-left: 5px;">
+                                        <a href="{% url 'dashboard:category_update' q.id %}">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                            <i class="anticon anticon-edit"></i>
+                                            
+                                        </button>
+                                        <a href="{% url 'dashboard:category_delete' q.id %}"></a>
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                            <i class="anticon anticon-delete"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                
                             </tr>
                             {% endfor %}
                         </tbody>

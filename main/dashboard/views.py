@@ -25,11 +25,16 @@ def category_create(request):
     return render(request, 'dashboard/category/create.html')
 
 
+
 def category_update(request, id):
-    queryset = models.Category.objects.get(id=id)
-    queryset.name = request.POST['name']
-    queryset.save()
-    return redirect('dashboard:category_detail', queryset.id)
+    category = models.Category.objects.get(id=id)
+    
+    if request.method == 'POST':
+        category.name = request.POST.get('name')
+        category.save()
+        return redirect('dashboard:category_list')  
+        
+    return render(request, 'dashboard/category/update.html', {'category': category})
 
 
 def category_delete(request, id):
@@ -89,7 +94,7 @@ def product_update(request, id):
     product.delivery = request.POST['delivery']
     product.save()
     return redirect('dashboard:product_list')
-
+ 
 
 def product_delete(request, id):
     product = models.Product.objects.get(id=id)

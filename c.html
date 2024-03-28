@@ -1,0 +1,44 @@
+<thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Harakatlar</th>
+        
+    </tr>
+</thead>
+<tbody>
+    {% for q in queryset %}
+    <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{q.name}}</td>
+        <td>...</td>
+        
+    </tr>
+    {% endfor %}
+</tbody>
+
+<tbody>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                        
+
+
+    <tr role="row"><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                                
+                                                    
+                                                    
+                                                
+        : activate to sort column ascending" style="width: 53.8906px;">
+            <div class="checkbox">
+                <input id="checkAll" type="checkbox">
+                <label for="checkAll" class="m-b-0"></label>
+            </div>
+        </th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 55.8438px;">ID</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Customer: activate to sort column ascending" style="width: 191.938px;">Customer</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 107.312px;">Date</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 89px;">Amount</th><th class="sorting_desc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 107.359px;" aria-sort="descending">Status</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=": activate to sort column ascending" style="width: 78.6562px;"></th></tr>
+        
